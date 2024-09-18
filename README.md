@@ -13,14 +13,14 @@ This project is a URL shortener built using Go, Redis, PostgreSQL, and NGINX. It
 
 The system is designed for scalability and optimized performance, making it capable of handling high traffic while minimizing latency.
 
-![System Design](./images/design.drawio)
+![System Design](./images/design.drawio.svg)
 
-## How to Start the Server (Go >= 1.18)
+## How to Start the Server 
 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/username/url-shortener
+   git clone https://github.com/Sarath191181208/url_shortner
    ```
 
 2. **Install dependencies**
