@@ -1,0 +1,42 @@
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+    ports:
+      - 3000:3000
+    depends_on:
+      - app
+
+  app:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./migrations:/migrations
+    deploy:
+      replicas: 3
+    depends_on:
+      - db 
+      - cache
+  
+  db:
+    image: postgres:15.3-alpine3.18
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=urls
+    volumes: 
+      - ./db:/var/lib/postgresql/data
+
+  cache:
+    image: redis:latest
+    restart: always
+    volumes:
+      - /path/to/local/dаta:/root/redis
+      - /path/to/local/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_PASSWORD=my-password
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16

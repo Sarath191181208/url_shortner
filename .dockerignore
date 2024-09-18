@@ -1,0 +1,7 @@
+.mysql-data/
+db/
+.git/
+.env
+tmp/
+data.db
+tests/
