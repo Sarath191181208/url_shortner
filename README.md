@@ -1,7 +1,5 @@
 # Url shortener
 
-## Description
-
 This project is a URL shortener built using Go, Redis, PostgreSQL, and NGINX. It is built without many external framework, relying solely on the Go standard library . NGINX handles load balancing across three input services, ensuring a scalable and efficient architecture.
 
 ### System Overview:
